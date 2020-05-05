@@ -33,6 +33,8 @@ func (s *S3) Region() string {
 	switch s.Domain {
 	case "s3.amazonaws.com", "s3-external-1.amazonaws.com":
 		return "us-east-1"
+	case "s3.us-west-2.amazonaws.com":
+		return "us-west-2"
 	case "s3-accelerate.amazonaws.com":
 		if region == "" {
 			panic("can't find endpoint region")
