@@ -70,7 +70,7 @@ func newGetter(getURL url.URL, c *Config, b *Bucket) (io.ReadCloser, http.Header
 	g.cond = sync.Cond{L: &sync.Mutex{}}
 
 	// use get instead of head for error messaging
-	urlStr := fmt.Sprintf("%s://%s%s", g.url.Scheme, g.url.Host, g.url.Path)
+	urlStr := fmt.Sprintf("%s://%s", g.url.Scheme, g.url.Path)
 	resp, err := g.retryRequest("GET", urlStr, nil)
 	if err != nil {
 		return nil, nil, err
